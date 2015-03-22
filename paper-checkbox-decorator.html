@@ -1,0 +1,28 @@
+<link rel="import"
+      href="../paper-checkbox/paper-checkbox.html">
+<polymer-element name="paper-checkbox-decorator"
+                 extends="paper-checkbox">
+	<template>
+		<style>
+			polyfill-next-selector { content: 'input'; }
+			::content input {
+				display: none;
+			}
+		</style>
+		<shadow></shadow>
+		<content></content>
+	</template>
+
+	<script>
+		Polymer('paper-checkbox-decorator', {
+
+			checkedChanged: function () {
+				this.super();
+				this.checked ?
+					this.querySelector('input[type=checkbox]').setAttribute('checked', '') :
+					this.querySelector('input[type=checkbox]').removeAttribute('checked');
+			}
+		});
+
+	</script>
+</polymer-element>

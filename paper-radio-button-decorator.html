@@ -1,0 +1,28 @@
+<link rel="import"
+      href="../paper-radio-button/paper-radio-button.html">
+<polymer-element name="paper-radio-button-decorator"
+                 extends="paper-radio-button">
+	<template>
+		<style>
+			polyfill-next-selector { content: 'input'; }
+			::content input {
+				display: none;
+			}
+		</style>
+		<shadow></shadow>
+		<content></content>
+	</template>
+
+	<script>
+		Polymer('paper-radio-button-decorator', {
+
+			checkedChanged: function () {
+				this.super();
+				this.checked ?
+					this.querySelector('input[type=radio]').setAttribute('checked', '') :
+					this.querySelector('input[type=radio]').removeAttribute('checked');
+			}
+		});
+
+	</script>
+</polymer-element>

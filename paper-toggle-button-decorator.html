@@ -1,0 +1,28 @@
+<link rel="import"
+      href="../paper-toggle-button/paper-toggle-button.html">
+<polymer-element name="paper-toggle-button-decorator"
+                 extends="paper-toggle-button">
+	<template>
+		<style>
+			polyfill-next-selector { content: 'input'; }
+			::content input {
+				display: none;
+			}
+		</style>
+		<shadow></shadow>
+		<content></content>
+	</template>
+
+	<script>
+		Polymer('paper-toggle-button-decorator', {
+
+			checkedChanged: function () {
+				this.super();
+				this.checked ?
+					this.querySelector('input[type=checkbox]').setAttribute('checked', '') :
+					this.querySelector('input[type=checkbox]').removeAttribute('checked');
+			}
+		});
+
+	</script>
+</polymer-element>
