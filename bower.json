@@ -10,8 +10,11 @@
 	  "form",
     "webcomponents"
   ],
+	"ignore": [
+		"**/.*",
+		"bower_components"
+	],
   "license": "MIT",
-  "private": false,
   "dependencies": {
 		"polymer": "Polymer/polymer#~0.5.5",
 	  "paper-checkbox": "Polymer/paper-checkbox#~0.5.5",
