@@ -26,6 +26,11 @@ There is no decorators for all kinds of text inputs as there is already [paper-i
 Decorators supposed to embed inputs which are invisible for the user (though, they are still visible to the form as 
 they are still in the light DOM) and used only to store the data of the form.
 
+It is possible to include all decorators at once:
+```html
+<link rel="import" href="../../bower_components/paper-form-element-decorators/paper-form-element-decorators.html">
+```
+
 ### Checkbox
 ```html
 	<paper-checkbox-decorator label="Check me" checked>
