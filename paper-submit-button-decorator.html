@@ -10,24 +10,24 @@
 
 		Polymer('paper-submit-button-decorator', {
 
-			ready: function() {
+			ready: function () {
 				var button = this.querySelector('button');
 
-				if(button == null) {
+				if (button == null) {
 					this.submit = this.querySelector('input[type=submit]');
 				} else {
 					this.submit = button;
 				}
 
-				if(this.submit != null)
+				if (this.submit != null) {
 					this.submit.setAttribute('style', 'display: none;');
 
-				this.addEventListener('click', function() {
-					if(this.submit == null)
-						return;
-
-					this.submit.click();
-				});
+					this.addEventListener('click', function () {
+						this.submit.click();
+					});
+				} else {
+					console.error("No submit input or button provided");
+				}
 			}
 
 		});
