@@ -1,6 +1,6 @@
 {
   "name": "paper-form-element-decorators",
-  "version": "0.55.1",
+  "version": "0.55.2",
   "authors": [
     "eRaga InfoSystems"
   ],
@@ -8,7 +8,7 @@
   "keywords": [
     "polymer",
 	  "form",
-    "webcomponents"
+    "web-components"
   ],
 	"ignore": [
 		"**/.*",
