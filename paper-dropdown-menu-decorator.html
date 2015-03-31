@@ -3,7 +3,7 @@
 <link rel="import" href="../paper-dropdown/paper-dropdown.html">
 <link rel="import" href="../core-menu/core-menu.html">
 <link rel="import" href="../paper-item/paper-item.html">
-<polymer-element name="paper-select-decorator">
+<polymer-element name="paper-dropdown-menu-decorator">
 	<template>
 		<style>
 			::content select {
@@ -28,7 +28,7 @@
 	</template>
 
 	<script>
-		Polymer('paper-select-decorator', {
+		Polymer('paper-dropdown-menu-decorator', {
 			ready          : function () {
 				this.super();
 				var options = this.querySelectorAll('option');
