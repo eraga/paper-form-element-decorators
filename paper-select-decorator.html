@@ -17,7 +17,7 @@
 		<shadow></shadow>
 		<content></content>
 		<paper-dropdown-menu id="select" on-core-select="{{select}}">
-			<paper-dropdown class="dropdown">
+			<paper-dropdown class="dropdown" layered>
 				<core-menu class="menu" selected="{{selected}}" valueattr="value">
 					<template repeat="{{option in options}}">
 						<paper-item value="{{option.value}}">{{option.label}}</paper-item>
@@ -45,6 +45,11 @@
 				var selectedOption = this.querySelector('option[selected]');
 				if (selectedOption)
 					this.selected = selectedOption.value;
+				else {
+					selectedOption = this.querySelectorAll('option').array()[0];
+					if (selectedOption)
+						this.selected = selectedOption.value;
+				}
 			},
 			selectedChanged: function () {
 				this.querySelector('select').value = this.selected;
