@@ -1,26 +1,26 @@
 {
   "name": "paper-form-element-decorators",
-  "version": "0.55.2",
+  "version": "0.55.3",
   "authors": [
     "eRaga InfoSystems"
   ],
   "description": "Decorators for checkboxes, radios and other form elements in the way it does paper-input-decorator",
   "keywords": [
     "polymer",
-		"form",
+    "form",
     "web-components"
   ],
-	"ignore": [
-		"**/.*",
-		"bower_components"
-	],
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
   "license": "MIT",
   "dependencies": {
-		"polymer": "Polymer/polymer#~0.5.5",
-		"paper-checkbox": "Polymer/paper-checkbox#~0.5.5",
-		"paper-radio-button": "Polymer/paper-radio-button#~0.5.5",
-		"paper-toggle-button": "Polymer/paper-toggle-button#~0.5.5",
-		"paper-button": "Polymer/paper-button#~0.5.5",
-		"paper-dropdown-menu": "Polymer/paper-dropdown-menu#~0.5.5"
-	}
+    "polymer": "Polymer/polymer#~0.5.5",
+    "paper-checkbox": "Polymer/paper-checkbox#~0.5.5",
+    "paper-radio-button": "Polymer/paper-radio-button#~0.5.5",
+    "paper-toggle-button": "Polymer/paper-toggle-button#~0.5.5",
+    "paper-button": "Polymer/paper-button#~0.5.5",
+    "paper-dropdown-menu": "Polymer/paper-dropdown-menu#~0.5.5"
+  }
 }
