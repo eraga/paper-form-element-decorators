@@ -7,10 +7,8 @@
 	</template>
 
 	<script>
-
 		Polymer('paper-submit-button-decorator', {
-
-			ready: function () {
+			created: function () {
 				var button = this.querySelector('button');
 
 				if (button == null) {
@@ -22,9 +20,15 @@
 				if (this.submit != null) {
 					this.submit.setAttribute('style', 'display: none;');
 
-					this.addEventListener('click', function () {
+					this.form = this.submit.form;
+
+					this.addEventListener('click', function (event) {
 						this.submit.click();
 					});
+//						TODO?
+//						this.addEventListener('mousedown', function (event) {
+//							dispatchEvent(this.submit, mouseEvent('mousedown', event));
+//						});
 				} else {
 					console.error("No submit input or button provided");
 				}
@@ -32,5 +36,35 @@
 
 		});
 
+		// From:
+		// http://marcgrabanski.com/simulating-mouse-click-events-in-javascript/
+		function mouseEvent(type, e) {
+			var evt;
+
+			if (typeof( document.createEvent ) == "function") {
+				evt = document.createEvent("MouseEvents");
+				evt.initMouseEvent(type,
+					e.bubbles, e.cancelable, e.view, e.detail,
+					e.screenX, e.screenY, e.clientX, e.clientY,
+					e.ctrlKey, e.altKey, e.shiftKey, e.metaKey,
+					e.button, document.body.parentNode);
+			} else if (document.createEventObject) {
+				evt = document.createEventObject();
+				for (prop in e) {
+					evt[prop] = e[prop];
+				}
+				evt.button = { 0: 1, 1: 4, 2: 2 }[evt.button] || evt.button;
+			}
+			return evt;
+		}
+
+		function dispatchEvent(el, evt) {
+			if (el.dispatchEvent) {
+				el.dispatchEvent(evt);
+			} else if (el.fireEvent) {
+				el.fireEvent('on' + type, evt);
+			}
+			return evt;
+		}
 	</script>
 </polymer-element>
