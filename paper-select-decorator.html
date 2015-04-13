@@ -16,7 +16,7 @@
 		</style>
 		<shadow></shadow>
 		<content></content>
-		<paper-dropdown-menu id="select" on-core-select="{{select}}">
+		<paper-dropdown-menu id="select" on-core-select="{{select}}" label="{{placeholder}}">
 			<paper-dropdown class="dropdown" layered>
 				<core-menu class="menu" selected="{{selected}}" valueattr="value">
 					<template repeat="{{option in options}}">
@@ -50,6 +50,15 @@
 					if (selectedOption)
 						this.selected = selectedOption.value;
 				}
+				this.placeholder = (function (self) {
+					var ops = this.querySelectorAll('option').array();
+					for (var i = 0; i < ops.length; i++) {
+						var option = ops[i];
+						if (!option.value)
+							return option.innerText;
+					}
+					return Drupal.t('Select item');
+				})(this)
 			},
 			selectedChanged: function () {
 				this.querySelector('select').value = this.selected;
