@@ -35,7 +35,7 @@
 				this.options = [];
 				for (var i = 0; i < options.length; i++) {
 					var option = options[i];
-					this.options.push(
+					if (option.value) this.options.push(
 							{
 								value: option.value ? option.value : option.text,
 								label: option.text
@@ -51,7 +51,7 @@
 						this.selected = selectedOption.value;
 				}
 				this.placeholder = (function (self) {
-					var ops = this.querySelectorAll('option').array();
+					var ops = self.querySelectorAll('option').array();
 					for (var i = 0; i < ops.length; i++) {
 						var option = ops[i];
 						if (!option.value)
